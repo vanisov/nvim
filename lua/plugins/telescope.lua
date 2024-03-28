@@ -5,23 +5,23 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local builtin = require("telescope.builtin")
-      local keymap = vim.keymap.set
-      -- File Pickers
+			local keymap = vim.keymap.set
+			-- File Pickers
 			keymap("n", "<c-p>", builtin.find_files, {})
 			keymap("n", "<leader>ff", builtin.find_files, {})
 			keymap("n", "<leader>fg", builtin.live_grep, {})
 
-      -- Vim Pickers
+			-- Vim Pickers
 			keymap("n", "<leader>fz", builtin.current_buffer_fuzzy_find, {})
 			keymap("n", "<leader>fb", builtin.buffers, {})
 			keymap("n", "<leader>qf", builtin.quickfix, {})
 			keymap("n", "<leader>th", builtin.colorscheme, {})
 
-      -- Git
+			-- Git
 			keymap("n", "<leader>gb", builtin.git_branches, {})
 			keymap("n", "<leader>gs", builtin.git_status, {})
 
-      -- LSP Pickers
+			-- LSP Pickers
 			keymap("n", "<leader>fr", builtin.lsp_references, {})
 			keymap("n", "gd", builtin.lsp_definitions, {})
 			keymap("n", "<leader>ft", builtin.lsp_type_definitions, {})
