@@ -1,7 +1,7 @@
 return {
   "filipdutescu/renamer.nvim",
   branch = "master",
-  requires = {
+  dependencies = {
     { "nvim-lua/plenary.nvim" },
   },
   opts = function()
