@@ -1,6 +1,6 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh8th/cmp-nvim-lsp",
   },
   {
     "L3MON4D3/LuaSnip",
@@ -11,11 +11,18 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        config = true,
+      },
+    },
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
+        formatting = { format = require("tailwindcss-colorizer-cmp").formatter },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
