@@ -7,7 +7,10 @@ return {
     "rcarriga/nvim-notify",
   },
   config = function()
-    require("noice").setup({
+    local noice = require("noice")
+    local notify = require("notify")
+
+    noice.setup({
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -24,6 +27,10 @@ return {
         inc_rename = false,       -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false,   -- add a border to hover docs and signature help
       },
+    })
+
+    notify.setup({
+      background_colour = "#1a1c23",
     })
   end,
 }
