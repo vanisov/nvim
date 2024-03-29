@@ -66,6 +66,18 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
+		end,
+	},
+	{
+		"folke/lsp-colors.nvim",
+		config = function()
+			require("lsp-colors").setup({
+				Error = "#db4b4b",
+				Warning = "#e0af68",
+				Information = "#0db9d7",
+				Hint = "#10B981",
+			})
 		end,
 	},
 }

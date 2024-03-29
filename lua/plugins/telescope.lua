@@ -9,6 +9,7 @@ return {
 			-- File Pickers
 			keymap("n", "<c-p>", builtin.find_files, {})
 			keymap("n", "<leader>ff", builtin.find_files, {})
+      keymap("n", "<leader>gf", builtin.git_files, {})
 			keymap("n", "<leader>fg", builtin.live_grep, {})
 
 			-- Vim Pickers
@@ -25,7 +26,6 @@ return {
 			keymap("n", "<leader>fr", builtin.lsp_references, {})
 			keymap("n", "gd", builtin.lsp_definitions, {})
 			keymap("n", "<leader>ft", builtin.lsp_type_definitions, {})
-			keymap("n", "<leader>sd", builtin.diagnostics, {})
 		end,
 	},
 	{

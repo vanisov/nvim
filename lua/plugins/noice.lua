@@ -4,11 +4,9 @@ return {
 	opts = {},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
-    "echasnovski/mini.notify"
 	},
 	config = function()
 		local noice = require("noice")
-		require("mini.notify").setup()
 
 		noice.setup({
 			-- Hide written messages
