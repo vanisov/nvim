@@ -8,8 +8,12 @@ return {
       view_options = {
         show_hidden = true,
       },
+      float = {
+        padding = 8,
+      }
     })
 
     vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+    vim.keymap.set("n", "<C-n>", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
   end,
 }

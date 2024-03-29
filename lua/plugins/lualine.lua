@@ -3,7 +3,8 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "dracula",
+				theme = "horizon",
+        section_separators = { left = '', right = ''},
 			},
 			extensions = { "oil" },
 		})
