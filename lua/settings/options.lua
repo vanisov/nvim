@@ -31,7 +31,7 @@ opt.smartcase = true
 -- Have pwetty cowos
 opt.termguicolors = true
 
--- Enable scrolloff and signcolumn
+-- Enable scroll off and signcolumn
 opt.scrolloff = 10
 opt.signcolumn = "yes"
 opt.isfname:append {"@-@"}
@@ -48,6 +48,10 @@ opt.splitright = true
 
 -- Enable sign column to prevent jumping
 opt.signcolumn = "yes"
+
+-- Enable spelling
+opt.spell = true
+opt.spelllang = "en_us"
 
 vim.cmd([[
 set shell=pwsh
