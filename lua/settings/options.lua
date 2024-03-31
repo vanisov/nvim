@@ -39,8 +39,8 @@ opt.isfname:append {"@-@"}
 -- Decrease updatetime to 200ms
 opt.updatetime = 50
 
--- Stuff for obsidian plugin
-opt.conceallevel = 2
+-- Ensure that things are always visible
+opt.conceallevel = 0
 
 -- Better splitting
 opt.splitbelow = true
@@ -48,10 +48,6 @@ opt.splitright = true
 
 -- Enable sign column to prevent jumping
 opt.signcolumn = "yes"
-
--- Enable spelling
-opt.spell = true
-opt.spelllang = "en_us"
 
 vim.cmd([[
 set shell=pwsh
