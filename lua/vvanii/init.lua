@@ -1,2 +1,2 @@
 require("vvanii.keymaps")
-require("vvanii.set")
+require("vvanii.options")

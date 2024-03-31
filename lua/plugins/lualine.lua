@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "horizon",
+				theme = "modus-vivendi",
         section_separators = { left = '', right = ''},
 			},
 			extensions = { "oil" },

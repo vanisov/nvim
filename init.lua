@@ -13,4 +13,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("vvanii")
+-- require("after.colors")
 require("lazy").setup('plugins')
