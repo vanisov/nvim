@@ -1,42 +1,62 @@
 return {
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
-		config = function()
-			vim.keymap.set("n", "<leader>tt", function()
-				require("trouble").toggle()
-			end)
-			vim.keymap.set("n", "<leader>tw", function()
-				require("trouble").toggle("workspace_diagnostics")
-			end)
-			vim.keymap.set("n", "<leader>td", function()
-				require("trouble").toggle("document_diagnostics")
-			end)
-			vim.keymap.set("n", "<leader>tq", function()
-				require("trouble").toggle("quickfix")
-			end)
-			vim.keymap.set("n", "<leader>tl", function()
-				require("trouble").toggle("loclist")
-			end)
-			vim.keymap.set("n", "<leader>tr", function()
-				require("trouble").toggle("lsp_references")
-			end)
-		end,
-	},
-	{
-		"dmmulroy/ts-error-translator.nvim",
-		config = function()
-			require("ts-error-translator").setup()
-		end,
-	},
-	{
-		"chikko80/error-lens.nvim",
-		event = "BufRead",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"kyazdani42/nvim-web-devicons",
-		},
-		opts = {},
-	},
+  {
+    "chikko80/error-lens.nvim",
+    event = "BufRead",
+    lazy = false,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "kyazdani42/nvim-web-devicons",
+    },
+    opts = {},
+  },
+  {
+    "folke/trouble.nvim",
+    branch = "dev",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      {
+        "<leader>tt",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>td",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>ts",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>tl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>tL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>tq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+    opts = {
+      icons = {
+        ---@type trouble.Indent.symbols
+        indent = {
+          top = "│ ",
+          middle = "├╴",
+          last = "╰╴",
+          fold_open = " ",
+          fold_closed = " ",
+          ws = "  ",
+        },
+      },
+    },
+  },
 }
