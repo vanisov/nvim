@@ -1,26 +1,21 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/nvim-cmp",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			"windwp/nvim-autopairs",
-			"windwp/nvim-ts-autotag",
-		},
-		config = function()
-			require("nvim-autopairs").setup()
-			require("nvim-ts-autotag").setup()
-		end,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			{
+				"L3MON4D3/LuaSnip",
+				version = "v2.2",
+				build = "make install_jsregexp",
+			},
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
-		},
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
+			"onsails/lspkind.nvim",
+			"windwp/nvim-ts-autotag",
+			"windwp/nvim-autopairs",
 			{
 				"roobert/tailwindcss-colorizer-cmp.nvim",
 				config = true,
@@ -28,7 +23,14 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
+			local cmpautopairs = require("nvim-autopairs.completion.cmp")
+			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
+
+			require("nvim-autopairs").setup()
+
+			-- Integrate nvim-autopairs with cmp
+			cmp.event:on("confirm_done", cmpautopairs.on_confirm_done())
 
 			cmp.setup({
 				formatting = {
@@ -38,7 +40,7 @@ return {
 				},
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				window = {
@@ -51,14 +53,13 @@ return {
 					["<C-k>"] = cmp.mapping.select_prev_item(),
 					["<C-b>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.close_docs(),
-					["<C-e>"] = cmp.mapping.abort(),
+					["<C-c>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-				}, {
-					{ name = "buffer" },
+					{ name = "buffer", max_item_count = 5 },
 				}),
 			})
 		end,

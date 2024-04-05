@@ -58,7 +58,7 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig.emmet_language_server.setup({
+      --[[ lspconfig.emmet_language_server.setup({
         capabilities = capabilities,
         filetypes = {
           "html",
@@ -69,7 +69,12 @@ return {
           "javascriptreact",
           "typescriptreact",
         },
-      })
+        showSuggestionsAsSnippets = true,
+      }) ]]
+
+      --[[ lspconfig.emmet_ls.setup({
+        capabilities = capabilities,
+      }) ]]
 
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
