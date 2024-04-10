@@ -11,10 +11,12 @@ return {
 				require("none-ls.diagnostics.eslint_d"),
 				require("none-ls.code_actions.eslint_d"),
 				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.stylua,
 			},
 		})
 
+		-- Format using keymap <leader>fm
 		vim.keymap.set("n", "<leader>fm", function()
 			vim.lsp.buf.format({ timeout_ms = 50000 })
 		end, {})
