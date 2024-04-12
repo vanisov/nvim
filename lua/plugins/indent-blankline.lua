@@ -3,11 +3,6 @@ return {
 	main = "ibl",
 	opts = {},
 	config = function()
-		require("ibl").setup({
-			scope = {
-				enabled = true,
-				show_exact_scope = true,
-			},
-		})
+		require("ibl").setup({})
 	end,
 }
