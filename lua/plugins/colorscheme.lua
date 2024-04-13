@@ -15,13 +15,6 @@ return {
 				link = "iris",
 				panel = "surface",
 
-				error = "love",
-				hint = "iris",
-				info = "foam",
-				note = "pine",
-				todo = "rose",
-				warn = "gold",
-
 				git_add = "foam",
 				git_change = "rose",
 				git_delete = "love",
