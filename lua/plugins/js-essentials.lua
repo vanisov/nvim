@@ -7,9 +7,10 @@ return {
 		},
 		config = function()
 			local lint = require("lint")
+
 			lint.linters_by_ft = {
 				javascript = { "eslint_d", "quick-lint-js" },
-				javascriptreact = { "eslint", "quick-lint-js" },
+				javascriptreact = { "eslint_d", "quick-lint-js" },
 				typescript = { "eslint_d", "quick-lint-js" },
 				typescriptreact = { "eslint_d", "quick-lint-js" },
 				json = { "jsonlint" },
