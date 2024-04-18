@@ -1,36 +1,4 @@
 return {
-	--[[ {
-		"mfussenegger/nvim-lint",
-		event = {
-			"BufReadPre",
-			"BufNewFile",
-		},
-		config = function()
-			local lint = require("lint")
-
-			lint.linters_by_ft = {
-				javascript = { "eslint_d", "quick-lint-js" },
-				javascriptreact = { "eslint_d", "quick-lint-js" },
-				typescript = { "eslint_d", "quick-lint-js" },
-				typescriptreact = { "eslint_d", "quick-lint-js" },
-				json = { "jsonlint" },
-				dotenv = { "dotenv-linter" },
-			}
-
-			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-				group = lint_augroup,
-				callback = function()
-					lint.try_lint()
-				end,
-			})
-
-			vim.keymap.set("n", "<leader>ll", function()
-				lint.try_lint()
-			end, { desc = "Trigger linting for current file" })
-		end,
-	}, ]]
 	{
 		"nvimtools/none-ls.nvim",
 		dependencies = {
@@ -79,5 +47,10 @@ return {
 				conform.format({ timeout_ms = 2000 })
 			end, {})
 		end,
+	},
+	{
+		"barrett-ruth/import-cost.nvim",
+		build = "sh install.sh npm",
+		config = true,
 	},
 }
