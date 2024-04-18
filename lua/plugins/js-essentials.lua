@@ -1,5 +1,5 @@
 return {
-	{
+	--[[ {
 		"mfussenegger/nvim-lint",
 		event = {
 			"BufReadPre",
@@ -19,13 +19,6 @@ return {
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-			--[[ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-				group = lint_augroup,
-				callback = function()
-					lint.try_lint()
-				end,
-			}) ]]
-
 			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 				group = lint_augroup,
 				callback = function()
@@ -36,6 +29,26 @@ return {
 			vim.keymap.set("n", "<leader>ll", function()
 				lint.try_lint()
 			end, { desc = "Trigger linting for current file" })
+		end,
+	}, ]]
+	{
+		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"nvimtools/none-ls-extras.nvim",
+			"gbprod/none-ls-shellcheck.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			local null_ls = require("null-ls")
+
+			null_ls.setup({
+				sources = {
+					require("none-ls.diagnostics.eslint_d"),
+					require("none-ls.code_actions.eslint_d"),
+					require("none-ls-shellcheck.diagnostics"),
+					require("none-ls-shellcheck.code_actions"),
+				},
+			})
 		end,
 	},
 	{
@@ -63,7 +76,7 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>fm", function()
-				conform.format()
+				conform.format({ timeout_ms = 2000 })
 			end, {})
 		end,
 	},

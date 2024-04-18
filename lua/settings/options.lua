@@ -34,13 +34,19 @@ opt.termguicolors = true
 -- Enable scroll off and signcolumn
 opt.scrolloff = 10
 opt.signcolumn = "yes"
-opt.isfname:append {"@-@"}
+opt.isfname:append({ "@-@" })
 
 -- Decrease updatetime to 200ms
 opt.updatetime = 50
 
 -- Ensure that things are always visible
 opt.conceallevel = 0
+
+-- Enable column line on the right
+opt.colorcolumn = "120"
+
+-- Enable row highlight
+opt.cursorline = true
 
 -- Better splitting
 opt.splitbelow = true
