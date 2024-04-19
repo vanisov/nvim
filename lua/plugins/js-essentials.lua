@@ -48,9 +48,4 @@ return {
 			end, {})
 		end,
 	},
-	{
-		"barrett-ruth/import-cost.nvim",
-		build = "sh install.sh npm",
-		config = true,
-	},
 }
