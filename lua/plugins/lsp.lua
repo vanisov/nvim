@@ -94,6 +94,11 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.astro.setup({
+				capabilities = capabilities,
+				filetypes = { "astro" },
+			})
+
 			--[[ lspconfig.emmet_language_server.setup({
         capabilities = capabilities,
         filetypes = {
