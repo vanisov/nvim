@@ -96,6 +96,15 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.astro.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.astro.setup({
 				capabilities = capabilities,

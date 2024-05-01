@@ -11,8 +11,8 @@ return {
 
 			null_ls.setup({
 				sources = {
-					require("none-ls.diagnostics.eslint_d"),
-					require("none-ls.code_actions.eslint_d"),
+					require("none-ls.diagnostics.eslint"),
+					require("none-ls.code_actions.eslint"),
 					require("none-ls-shellcheck.diagnostics"),
 					require("none-ls-shellcheck.code_actions"),
 				},
