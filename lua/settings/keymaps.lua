@@ -29,3 +29,6 @@ keymap("i", "<C-l>", "<Right>")
 
 -- Toggle comment with leader+/
 keymap("n", "<leader>/", "gcc")
+
+-- Disable F1 help key
+keymap("n", "<F1>", "<Nop>")
