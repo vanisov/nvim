@@ -32,3 +32,5 @@ keymap("n", "<leader>/", "gcc")
 
 -- Disable F1 help key
 keymap("n", "<F1>", "<Nop>")
+keymap("i", "<F1>", "<Nop>")
+keymap("v", "<F1>", "<Nop>")
