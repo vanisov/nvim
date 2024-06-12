@@ -30,7 +30,10 @@ return {
 				c = { fg = colors.white },
 			},
 		}
-		require("lualine").setup({
+
+		local lualine = require("lualine")
+
+		lualine.setup({
 			options = {
 				theme = bubbles_theme,
 				component_separators = "",
