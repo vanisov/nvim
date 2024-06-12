@@ -55,6 +55,9 @@ opt.splitright = true
 -- Enable sign column to prevent jumping
 opt.signcolumn = "yes"
 
+-- Disbale mouse
+opt.mouse = ""
+
 vim.cmd([[
 set shell=pwsh
 set shellcmdflag=-command

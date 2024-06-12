@@ -16,7 +16,9 @@ return {
 
 			-- File Pickers
 			keymap("n", "<c-p>", builtin.find_files, {})
-			keymap("n", "<leader>ff", builtin.find_files, {})
+			keymap("n", "<leader>ff", function()
+				builtin.find_files({ hidden = true, no_ignore = true })
+			end, {})
 			keymap("n", "<leader>gf", builtin.git_files, {})
 			keymap("n", "<leader>fg", builtin.live_grep, {})
 
